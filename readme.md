@@ -11,10 +11,10 @@ Add to this our interest in programming and technology, we were bound to choose 
 We are just starting out in serious programming concepts and we will most likely face many difficulties in shipping  
 out a finished project(we alredy are) but nevertheless we'll try our best to do bring our dreams to reality.
 
-### Progress Report 
+### Progress Report   
 
-[x] started work on making a basic flask based web-framework
-[ ] figuring out a usable backend for the app 
+[x]started work on making a basic flask based web-framework
+[ ]figuring out a usable backend for the app 
 
 
 
