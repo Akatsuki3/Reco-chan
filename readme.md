@@ -1,4 +1,4 @@
-## Reco-chan ![python-girl](/pygirl.png =100px)
+## Reco-chan ![python-girl](/pygirl.png =100x)
 
 
 ### A flask application that will scrape data or use an api(not sure yet) to provide users with recomendations based on their input 
