@@ -13,8 +13,8 @@ out a finished project(we alredy are) but nevertheless we'll try our best to do 
 
 ### Progress Report   
 
--[x] started work on making a basic flask based web-framework
--[ ] figuring out a usable backend for the app 
+- [x] started work on making a basic flask based web-framework
+- [ ] figuring out a usable backend for the app 
 
 
 
