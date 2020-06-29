@@ -1,5 +1,5 @@
 ## Reco-chan 
-<img src="/pygirl.png" alt="anipy" width="60" length="100"/>
+<img src="/pygirl.png" alt="anipy" width="120" length="200"/>
 
 ### A flask application that will scrape data or use an api(not sure yet) to provide users with recomendations based on their input 
 
