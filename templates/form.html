@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example form</title>
+</head>
+<body>
+<h1>This is an example form</h1>
+<form action="{{ url_for('submit') }}" method="post">
+    <textarea name="text"></textarea>
+    <input type="submit">
+</form>
+<p>{%for i in lis%}
+print i 
+{%endfor%}
+</p>
+</body>
+</html>
+</form>
