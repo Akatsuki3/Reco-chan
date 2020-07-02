@@ -1,5 +1,5 @@
 ## Reco-chan 
-<img src="/pygirl.png" alt="anipy" width="120" length="200"/>
+<img src="/media/pygirl.png" alt="anipy" width="120" length="200"/>
 
 ### A flask application that will scrape data or use an api(not sure yet) to provide users with recomendations based on their input 
 
@@ -16,6 +16,7 @@ out a finished project(we alredy are) but nevertheless we'll try our best to do 
 - [x] started work on making a basic flask based web-framework
 - [x] figuring out a usable backend for the app 
 - [ ] choosing an api to work with
+- [x] Login and registration page 
 
 
 
