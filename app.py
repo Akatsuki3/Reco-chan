@@ -1,84 +1,89 @@
-# -*- coding: utf-8 -*-
-
-from scripts import tabledef
-from scripts import forms
-from scripts import helpers
-from flask import Flask, redirect, url_for, render_template, request, session
-import json
+# -*- coding: UTF-8 -*-
+from flask import Flask, request, render_template, flash, redirect, url_for
+from wtforms import Form,StringField,validators
 import sys
-import os
+import csv
+import requests
+from bs4 import BeautifulSoup
+import random 
+
+#-----------initialisation---------------
 
 app = Flask(__name__)
-app.secret_key = os.urandom(12)  # Generic key for dev purposes only
+app.config['SECRET_KEY'] = "weareweebs"
+#--------------FormClass-----------------
 
-# Heroku
-#from flask_heroku import Heroku
-#heroku = Heroku(app)
+class RegisterForm(Form): #inheriting form
+	animetitle = StringField('anime_title', [validators.Length(min=2, max=25)])
+	username = StringField('Username', [validators.Length(min=4, max=25)])
+	animetitle2 = StringField('anime_title2', [validators.Length(min=2, max=25)])
+	animetitle3 = StringField('anime_title3', [validators.Length(min=2, max=25)])
+#--------------route---------------------
 
-# ======== Routing =========================================================== #
-# -------- Login ------------------------------------------------------------- #
-@app.route('/', methods=['GET', 'POST'])
-def login():
-    if not session.get('logged_in'):
-        form = forms.LoginForm(request.form)
-        if request.method == 'POST':
-            username = request.form['username'].lower()
-            password = request.form['password']
-            if form.validate():
-                if helpers.credentials_valid(username, password):
-                    session['logged_in'] = True
-                    session['username'] = username
-                    return json.dumps({'status': 'Login successful'})
-                return json.dumps({'status': 'Invalid user/pass'})
-            return json.dumps({'status': 'Both fields required'})
-        return render_template('login.html', form=form)
-    user = helpers.get_user()
-    return render_template('home.html', user=user)
+@app.route('/', methods=['GET','POST'])
+def form():
+	form = RegisterForm(request.form)
+	if request.method == 'POST' and form.validate():
+		animetitle = form.animetitle.data
+		animetitle2 = form.animetitle2.data
+		animetitle3 = form.animetitle3.data
+		user = form.username.data
+		flash("Your anime reccommendation is being generated")
+		#-----------animeprog--------------------
+		#--------logic-----------------------------------------
 
-
-@app.route("/logout")
-def logout():
-    session['logged_in'] = False
-    return redirect(url_for('login'))
+		genre1 = genre2 = genre3 = []
+		names =[animetitle,animetitle2,animetitle3]
+		genres = [genre1, genre2, genre3]
 
 
-# -------- Signup ---------------------------------------------------------- #
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if not session.get('logged_in'):
-        form = forms.LoginForm(request.form)
-        if request.method == 'POST':
-            username = request.form['username'].lower()
-            password = helpers.hash_password(request.form['password'])
-            email = request.form['email']
-            if form.validate():
-                if not helpers.username_taken(username):
-                    helpers.add_user(username, password, email)
-                    session['logged_in'] = True
-                    session['username'] = username
-                    return json.dumps({'status': 'Signup successful'})
-                return json.dumps({'status': 'Username taken'})
-            return json.dumps({'status': 'User/Pass required'})
-        return render_template('login.html', form=form)
-    return redirect(url_for('login'))
+		for name in names:
+		    url = "http://www.google.com/search?q="+name+" myanimelist"
+
+		    page = requests.get(url)
+		    content = page.text
+		    soup = BeautifulSoup(content,"html.parser")
+		    links = []
+
+		    for link in soup.find_all('a'):
+		        links.append(link.get('href'))
+
+		    index = 0
+		    counter = 0
+
+		    while counter == 0:
+		        if links[index][:7] == "/url?q=":
+		            counter = -1
+		        else:
+		            index += 1
+
+		    url = links[index][7:]
+		    page = requests.get(url)
+		    content = page.text
+		    soup = BeautifulSoup(content,"html.parser")
+		    genre =[]
+
+		    for i in soup.find_all(itemprop ="genre"):
+		        genre.append(i.get_text())
 
 
-# -------- Settings ---------------------------------------------------------- #
-@app.route('/settings', methods=['GET', 'POST'])
-def settings():
-    if session.get('logged_in'):
-        if request.method == 'POST':
-            password = request.form['password']
-            if password != "":
-                password = helpers.hash_password(password)
-            email = request.form['email']
-            helpers.change_user(password=password, email=email)
-            return json.dumps({'status': 'Saved'})
-        user = helpers.get_user()
-        return render_template('settings.html', user=user)
-    return redirect(url_for('login'))
+		#---------csv-data-------------------------------------
+		rani = []
+		with open('anidatalist.csv','r',encoding='utf-8') as f:
+			f_reader = csv.reader(f) 
+			next(f_reader)
+			for i in genre:
+				for j in f_reader:
+					if i==j[2]:
+						rani.append(j[1])
+		anilist = []				
+		for i in range(10):
+			anilist.append((random.choice(rani)))
+		return render_template("reco.html",r1=anilist[0],r2=anilist[1],r3=anilist[2],r4=anilist[3],r5=anilist[4],r6=anilist[5],r7=anilist[6],r8=anilist[7],r9=anilist[8],r10=anilist[9])
+		
+	return render_template('form.html',form=form) 
+	
 
-
-# ======== Main ============================================================== #
-if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True, host="0.0.0.0")
+#--------start-app-------------------------------------
+if __name__ == '__main__':
+	app.run(debug=True)

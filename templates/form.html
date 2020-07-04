@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Take input</title>
+</head>
+<body>
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.username) }}
+    {{ render_field(form.animetitle) }}
+    {{ render_field(form.animetitle2) }}
+    {{ render_field(form.animetitle3) }}
+  </dl>
+  <p><input type=submit value=Submit>
+  <p class="{{ category }}">{{ message }}</p>
+</form>
+</body>
+</html>
