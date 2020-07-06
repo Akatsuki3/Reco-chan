@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+{% include "navbar.html" %}
+<title>Reco-Chan</title>
+<section class="hero is-primary is-bold is-medium" id="home">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns">
+        <div class="column is-auto">
+          <img src="https://raw.githubusercontent.com/Akatsuki3/Reco-chan/master/media/pygirl.png" width="140">
+          <br>
+          <p class="title is-2">Okaeri!</p>
+          <p class="subtitle is-4"><i>&nbsp;Reco-Chan will provide you with unlimited anime suggestions</i></p>
+          <p class="subtitle is-5">&#x2022 Just enter your three most favourite most favourite anime</p>
+          <p class="subtitle is-5">&#x2022 And Reco will generate anime recommendations, one of which may even end up as your new favourite</p>    
+        </div>
+        <div class="column is-auto">
+        	<div id="signup-box" class="signup-box">
+	            <div class="signup-area">
+		            <h1 class="title">Enter your favourite anime</h1>
+		            <div class="field">
+		                <p class="control has-icons-left has-icons-right"></p>
+		                <form method=post>
+        							<dl>
+        						    <div class="signup-area">
+        						    {{ render_field(form.username) }}
+        						    {{ render_field(form.animetitle) }}
+        						    {{ render_field(form.animetitle2) }}
+        						    {{ render_field(form.animetitle3) }}
+        							  </div>
+        						 	</dl>
+        							<!-- Accent-colored raised button with ripple -->
+        							<button class="form-button button is-primary is-inverted is-outlined"type=submit value=Submit>
+        						  	Submit
+        							</button>
+        							<p class="{{ category }}">{{ message }}</p>
+        						</form>  
+
+		              <br>
+		              <i><a id="feedback" class="feedback"></a></i>
+		            </div>  
+		          </div>      
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</section>
+<section class="hero is-secondary is-bold is-medium" id="team">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns">
+        <div class="column is-auto">
+          <img src="https://raw.githubusercontent.com/Akatsuki3/Reco-chan/master/media/suraj.PNG" width="140">
+          <p class="title is-2">Suraj Das</p>
+          <p class="subtitle is-4"><i>&nbsp;Front End and Python</i></p>
+          <p class="subtitle is-5"> Worked on the front end for this project and used Flask to power the front end. Hasn't really learned html and css but was able to somehow get by. He promises to&nbsp;improve his skills after this project so be on the lookout. Plans to learn machine learning next... Wish the boy some luck :-| <br>He's gonna need it.</p>
+          <i class="fab fa-github teamprofileicons"></i><a href="https://github.com/Suraj1749">&nbsp;Suraj</a>
+        </div>
+
+        <div class="column is-auto">
+          <img src="https://raw.githubusercontent.com/Akatsuki3/Reco-chan/master/media/nithesh.PNG" width="140">
+          <p class="title is-2">Nithesh Kumar</p>
+          <p class="subtitle is-4"><i>&nbsp;Master of Python and OOP</i></p>
+          <p class="subtitle is-5">Worked on most of the backend logic. He has recently discovered the power of OOP and is churning out apps at a break-neck pace. His goal is to improve his skills and use them to make the ultimate pishing app...or so he says. A master of logic and deduction, there's no telling to what he might do ; )</p>
+          <i class="fab fa-github teamprofileicons"></i><a href="https://github.com/Nithesh24">&nbsp;Nithesh</a>
+        </div>
+ 
+      </div>  
+    </div>
+  </div>
+</section>      
+<section class="hero is-primary is-bold is-medium" id="faq">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title is-2">Faq</p><br>
+      <p class="subtitle is-4"><i>&nbsp;Did really write the code for this?</i></p>
+      <p class="subtitle is-5">Yeah we did... atleast most of it but as we don't have that many front end desigining skills yet we had steal a little from here and there. Don't worry it's all perfectly legal ;p</p>
+      <p class="subtitle is-4"><i>&nbsp;Why did you start this project?</i></p>
+      <p class="subtitle is-5">Well if you can't guess already, we're huge weebs and also happen to love coding this just happens to be the intersection.</p>
+      <p class="subtitle is-4"><i>&nbsp;Can I make something like this?</i></p>
+      <p class="subtitle is-5">Ofcourse you can and it will most probably end up far better than what we have done here. So if you want to kick-start your development journey don't hesitate to ask Nithesh or me for help.</p>
+      <p class="subtitle is-4"><i>&nbsp;Any last words?</i></p>
+      <p class="subtitle is-5">As you can see this was our first large scale python project. And just in the past few days our skills have developed a lot atleast that's what I would like to believe, so be in the lookout for more interesting and fun projects in the future&nbsp;: )</p>
+    </div>
+  </div>
+</section>   
+<section class="hero is-secondary is-bold is-medium" id="features">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title is-2">Some Planned Features</p><br>
+      <p class="subtitle is-4">&#x2022 Registration and login support using a Db</p>
+      <p class="subtitle is-4">&#x2022 Seeing other users' recommendations</p>
+      <p class="subtitle is-4">&#x2022 Storing your watchlist</p>
+      <p class="subtitle is-4">&#x2022 and loads of other stuff ✨</p>
+      <a class="button is-primary is-inverted" href="#home">
+          <span>Go up ☝️</span>
+      </a>
+    </div>
+  </div>
+</section>       
+<section class="hero">
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Reco-Chan</strong> by Suraj and Nithesh
+          <span class="icon is-small">
+            <i class="fa fa-copyright"></i>
+          </span>2020</a>
+        </p>
+        <p>     
+          <a class="icon has-text-primary" href="mailto:surajdas.space@gmail.com" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

@@ -15,8 +15,9 @@ out a finished project(we alredy are) but nevertheless we'll try our best to do 
 
 - [x] started work on making a basic flask based web-framework
 - [x] figuring out a usable backend for the app 
-- [ ] choosing an api to work with
-- [x] Login and registration page 
+- [x] choosing an api to work with (working with datasets now)
+- [] Login and registration page (scrapped for now)
+- [] deploying the prototype app 
 
 
 
