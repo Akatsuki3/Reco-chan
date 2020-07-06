@@ -74,7 +74,7 @@ def form():
 			next(f_reader)
 			for i in genre:
 				for j in f_reader:
-					if i==j[3]:
+					if i==j[2]:
 						rani.append(j[1])
 		anilist = []				
 		for i in range(10):
