@@ -18,14 +18,9 @@ class RegisterForm(Form): #inheriting form
 	animetitle2 = StringField('anime_title2', [validators.Length(min=2, max=25)])
 	animetitle3 = StringField('anime_title3', [validators.Length(min=2, max=25)])
 #--------------route---------------------
-#@app.route('/')
-def index():
-	return render_template('recom.html')
-@app.route('/home')
-def index():
-	return render_template('home.html')
 
-#@app.route('/', methods=['GET','POST'])
+
+@app.route('/', methods=['GET','POST'])
 def form():
 	form = RegisterForm(request.form)
 	if request.method == 'POST' and form.validate():
@@ -86,7 +81,7 @@ def form():
 			anilist.append((random.choice(rani)))
 		return render_template("reco.html",r1=anilist[0],r2=anilist[1],r3=anilist[2],r4=anilist[3],r5=anilist[4],r6=anilist[5],r7=anilist[6],r8=anilist[7],r9=anilist[8],r10=anilist[9],user=user)
 		
-	return render_template('form.html',form=form) 
+	return render_template('home.html',form=form) 
 	
 
 #--------start-app-------------------------------------
