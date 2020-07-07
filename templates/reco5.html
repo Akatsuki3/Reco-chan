@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+<section class="hero is-white">
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="https://github.com/anfederico/Flaskex/raw/master/media/flaskex-logo.png" alt="Flaskex_logo">
+        <h6 href="/" class="subtitle"><strong>Reco-Chan</strong></h6>
+      </a>
+      <div id="navbar-burger-id" class="navbar-burger burger" data-target="navbar-menu-id">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a href="https://github.com/Akatsuki3/Reco-chan" class="button is-primary is-outlined">
+                <span>Github Repositry For this App</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="hero is-primary is-bold is-medium" id="home">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns">
+        <div class="column is-auto">
+          <img src="https://raw.githubusercontent.com/Akatsuki3/Reco-chan/master/media/pygirl.png" width="140">
+          <br>
+          <p class="title is-2">Omedetou!</p>
+          <p class="subtitle is-4"><i>&nbsp;Hey {{user}} here are your recommendations ~</i></p>
+          <p class="subtitle is-5">&#x2022 {{r0}}</p>
+          <p class="subtitle is-5">&#x2022 {{r1}}</p>
+          <p class="subtitle is-5">&#x2022 {{r2}}</p>
+          <p class="subtitle is-5">&#x2022 {{r3}}</p>
+          <p class="subtitle is-5">&#x2022 {{r4}}</p>
+          <p class="subtitle is-5">&#x2022 {{r5}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>              
+<section class="hero">
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Reco-Chan</strong> by Suraj and Nithesh
+          <span class="icon is-small">
+            <i class="fa fa-copyright"></i>
+          </span>2020</a>
+        </p>
+        <p>     
+          <a class="icon has-text-primary" href="mailto:surajdas.space@gmail.com" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}
