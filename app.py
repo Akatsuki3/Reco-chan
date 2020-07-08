@@ -113,7 +113,7 @@ def form():
 				reco_anime.remove(i)
 		emp = []		
 	
-		if maxin <= 5:
+		if len(reco_anime) <= 5:
 			return render_template("error.html")
 
 		elif maxin == 5:
