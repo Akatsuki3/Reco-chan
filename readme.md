@@ -3,6 +3,10 @@
 
 ### A flask application that will scrape data or use an api(not sure yet) to provide users with recomendations based on their input 
 
+### This Web App is now available
+
+[visit](https://recochan.herokuapp.com/) the website and share your thoughts on it! 
+
 #### Ambition behind this project 
 
 
@@ -17,7 +21,7 @@ out a finished project(we alredy are) but nevertheless we'll try our best to do 
 - [x] figuring out a usable backend for the app 
 - [x] choosing an api to work with (working with datasets now)
 - [] Login and registration page (scrapped for now)
-- [] deploying the prototype app 
+- [x] deploying the prototype app 
 
 
 

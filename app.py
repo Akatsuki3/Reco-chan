@@ -81,11 +81,7 @@ def repeater(lst):
 
 animes = database("database.csv")
 
-
-
-
 #--------------route---------------------
-
 
 @app.route('/', methods=['GET','POST'])
 def form():
@@ -117,7 +113,10 @@ def form():
 				reco_anime.remove(i)
 		emp = []		
 	
-		if maxin == 5:
+		if maxin <= 5:
+			return render_template("error.html")
+
+		elif maxin == 5:
 			for i in range(6):
 				emp.append(random.choice(reco_anime))
 			return render_template("reco5.html",r0=emp[0],r1=emp[1],r2=emp[2],r3=emp[3],r4=emp[4],r5=emp[5],user=user)
@@ -154,4 +153,4 @@ def form():
 
 #--------start-app-------------------------------------
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
