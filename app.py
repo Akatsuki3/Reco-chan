@@ -92,7 +92,7 @@ def form():
 		animetitle3 = form.animetitle3.data
 		user = form.username.data
 		maxin = form.maxin.data
-		flash("Your anime reccommendation has been generated",category="'success'")
+		flash("Your anime reccommendation is being generated",category="'success'")
 		#-----------animeprog--------------------
 		#--------logic-----------------------------------------
 		names =[animetitle,animetitle2,animetitle3]
