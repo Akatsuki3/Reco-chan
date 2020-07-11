@@ -58,17 +58,6 @@ class database:
     def done(self):
         self.f.close()
 
-def spellchecker(spell):
-    url = "http://www.google.com/search?q=" + spell + " myanimelist"
-    page = requests.get(url)
-    soup = BeautifulSoup(page.text, "html.parser")
-    correct_spell = soup.find_all("h3")[0]
-    correct_spell = correct_spell.get_text()
-    if "(" not in correct_spell:
-        return correct_spell.split(" - MyAnimeList.net").pop(0)
-    else:
-        return correct_spell.split(" (").pop(0)
-
 def repeater(lst):
     once = []
     repeat = []
@@ -105,21 +94,18 @@ def form():
 		#-----------animeprog--------------------
 		#--------logic-----------------------------------------
 		names =[animetitle,animetitle2,animetitle3]
-		input_anime = []
 		genres = []
-		anime_list = []
+		anime_list = []		
 		for i in names:
-			input_anime.append(spellchecker(i))		
-		for i in input_anime:
 			genres += animes.get_genre(i)
 		for i in repeater(genres):
 			anime_list += animes.get_anime(i)
 
 		reco_anime = repeater(anime_list)
 
-		for i in reco_anime:
-			if i in input_anime:
-				reco_anime.remove(i)
+		#for i in reco_anime:
+		#	if i in names:
+		#		reco_anime.remove(i)
 		
 		emp,links,imgs = [],[],[]		
 		
