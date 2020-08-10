@@ -1,28 +1,16 @@
 ## Reco-chan 
 <img src="/media/pygirl.png" alt="anipy" width="120" length="200"/>
 
-### A flask application that will scrape data or use an api(not sure yet) to provide users with recomendations based on their input 
+### This project is hence closed 
 
-### This Web App is now available
+#### Reasons behind closing the project  
+- This being my first ever project and all, I made so many terrible implementations that it's damn near impossible to add new features or fix stuff
+- I don't have much time to invest in starting from tihs project's bones again 
+- I'd like start diffrently when and if I start on this project again
 
-[visit](https://recochan.herokuapp.com/) the website and share your thoughts on it! 
+### Will you create another such Anime recommmendation app ?
+Yeah maybe, nothing's set in stone but I do feel the need for such an application.
 
-#### Ambition behind this project 
-
-
-We are a bunch of boys with an avid fiaxation with japenese culture and anime in general(basically weebs really).  
-Add to this our interest in programming and technology, we were bound to choose this as our first _big_ project.
-We are just starting out in serious programming concepts and we will most likely face many difficulties in shipping  
-out a finished project(we alredy are) but nevertheless we'll try our best to do bring our dreams to reality.
-
-### Progress Report   
-
-- [x] started work on making a basic flask based web-framework
-- [x] figuring out a usable backend for the app 
-- [x] choosing an api to work with (working with datasets now)
-- [] Login and registration page (scrapped for now)
-- [x] deploying the prototype app 
-
-
-
-Thank you for your interest ~ Nitesh and Suraj 
+Will always remember this as my first ever proper project,
+Thanks for all the memories sniff..sniff
+~ Suraj and Nithesh 
