@@ -1,5 +1,5 @@
 ## Reco-chan 
-<img src="/media/pygirl.png" alt="anipy" width="120" length="200"/>
+<img align="center" src="/media/pygirl.png" alt="anipy" width="120" length="200"/>
 
 ### This project is hence closed 
 
